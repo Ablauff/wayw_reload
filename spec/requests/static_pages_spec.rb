@@ -11,7 +11,12 @@ describe "Static pages" do
 
     it "should have the title 'Home'" do
       visit '/static_pages/home'
-      expect(page).to have_title("Путь Воина::Перезагрузка | Главная")
+      expect(page).to have_title("Путь Воина::Перезагрузка")
+    end
+
+    it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Главная')
     end
   end
 
@@ -40,4 +45,18 @@ describe "Static pages" do
       expect(page).to have_title("Путь Воина::Перезагрузка | О нас")
     end
   end
+
+  describe "Contact page" do
+
+    it "should have the content 'Contact'" do
+      visit '/static_pages/contact'
+      expect(page).to have_content('Контакты')
+    end
+
+    it "should have the title 'Contact'" do
+      visit '/static_pages/contact'
+      expect(page).to have_title("Путь Воина::Перезагрузка | Контакты")
+    end
+  end
+
 end
