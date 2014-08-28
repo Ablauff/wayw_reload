@@ -1,6 +1,8 @@
--#= provide(:title, 'Главная')
-%h1 Путь Воина:Перезагрузка
-%p
-  This is the home page for the
-  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
+.center.hero-unit
+  %h1 Путь Воина::Перезагрузка
+
+  %h2
+    Это главная страница
+    <a href="*">Путь Воина::Перезагрузка</a>
+
+  = link_to "Регистрация!", signup_path, class: "btn btn-large btn-primary"
