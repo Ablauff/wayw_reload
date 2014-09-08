@@ -4,6 +4,18 @@
       = link_to "Путь Воина", '#', id: "logo"
       %nav
         %ul.nav.pull-right
-          %li= link_to "Главная",         root_path
-          %li= link_to "Помощь",          help_path
-          %li= link_to "Авторизоваться",  '#'
+          %li= link_to "Главная",    root_path
+          %li= link_to "Помощь",    help_path
+          - if signed_in?
+            %li= link_to "Юзеры", '#'
+            %li#fat-menu.dropdown
+              %a{href: '#', class: "dropdown-toggle", "data-toggle" => "dropdown"}
+                Аккаунт
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to "Профиль", current_user
+                %li= link_to "Настройки", '#'
+                %li.divider
+                %li= link_to "Выход", signout_path, method: "delete"
+          - else
+            %li= link_to "Авторизоваться", signin_path
